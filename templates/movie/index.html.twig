@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="mx-auto w-80 my-4">
+    <a href="/movie/create" class="text-uppercase border border-secondary btn btn-lg px-3 py-1 bg-dark text-white">
+        Create New Movie</a>
+</div>
+   
+        <h2 class="text-center">
+        Movies Review( {{ movies|length }})
+        </h2>
+        
+        <div class="row">
+             {% for movie in movies %}
+         <div class="col-md-4">
+            <div class="card mb-3" style="width: 18rem;">        
+                     <img src="{{movie.imagePath}}" class="card-img-top" style="height: 15rem;" alt="{{movie.title}}" >
+                        <div class="card-body">
+                            <h5 class="card-title">{{movie.title}}</h5>
+                            <p class="card-text">{{movie.description}}</p>
+                            <a href="{{path('movies',{id:movie.id})}}" class="btn btn-primary">Details</a>
+                        </div>                                   
+            </div>
+          </div> 
+        
+        {% endfor %}
+        </div>
+          {% if movies is empty %}
+            <div class="alert alert-info">
+                No movies available at the moment.
+            </div>
+          {% endif %}        
+
+{% endblock %}

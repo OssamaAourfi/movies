@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Create Movie</h2>
+<form action="{{path('create_movie')}}" method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="titre" class="form-label">Title</label>
+    <input type="text" class="form-control" id="titre" name="title">
+    
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" name="description">
+  </div>
+  <div class="mb-3">
+    <label for="imagePath" class="form-label">image Path</label>
+    <input type="file" class="form-control" id="imagePath" name="imagePath">
+  </div>
+  <div class="mb-3">
+    <label for="ReleaseYear" class="form-label">release Year</label>
+    <input type="number" class="form-control" id="ReleaseYear" name="releaseYear">
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
